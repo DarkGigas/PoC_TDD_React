@@ -21,7 +21,12 @@ const setup = () => shallow(<App />)
  */
 const findByTestAttr = (wrapper, value) => wrapper.find(`[data-test="${value}"]`)
 
-test("renders without crashing", () => {
+test("instantiates App without crashing", () => {
+  const wrapper = setup()
+  expect(wrapper).toBeTruthy()
+})
+
+test("renders main div on App", () => {
   const wrapper = setup()
   const appComponent = findByTestAttr(wrapper, "app-component")
   expect(appComponent.length).toBe(1)
