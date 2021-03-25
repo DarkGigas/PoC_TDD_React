@@ -33,6 +33,7 @@ test("renders button", () => {
   expect(button.length).toBe(1)
 })
 
+//This is a Unit Test
 test("renders counter display", () => {
   const wrapper = setup()
   const counterDisplay = findByTestAttr(wrapper, "counter-display")
@@ -45,6 +46,14 @@ test("counter starts at 0", () => {
   expect(count).toBe("0")
 })
 
-// test("button click updates counter", () => {
+//This is a behavior test
+test("button click updates counter", () => {
+  const wrapper = setup()
+  const button = findByTestAttr(wrapper, "increment-button")
 
-// })
+  button.simulate("click")
+  const count = findByTestAttr(wrapper, "count").text()
+
+  expect(count).toBe("1")
+
+})
