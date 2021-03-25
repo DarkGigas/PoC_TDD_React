@@ -23,21 +23,18 @@ const findByTestAttr = (wrapper, value) => wrapper.find(`[data-test="${value}"]`
 
 test("renders without crashing", () => {
   const wrapper = setup()
-  expect(wrapper).toBeTruthy() // Checks if wrapper is not undefined/null
   const appComponent = findByTestAttr(wrapper, "app-component")
   expect(appComponent.length).toBe(1)
 })
 
 test("renders button", () => {
   const wrapper = setup()
-  expect(wrapper).toBeTruthy()
   const button = findByTestAttr(wrapper, "increment-button")
   expect(button.length).toBe(1)
 })
 
 test("renders counter display", () => {
   const wrapper = setup()
-  expect(wrapper).toBeTruthy()
   const counterDisplay = findByTestAttr(wrapper, "counter-display")
   expect(counterDisplay.length).toBe(1)
 })
