@@ -21,17 +21,20 @@ const setup = () => shallow(<App />)
  */
 const findByTestAttr = (wrapper, value) => wrapper.find(`[data-test="${value}"]`)
 
+//This is a Unit Test
 test("instantiates App without crashing", () => {
   const wrapper = setup()
   expect(wrapper).toBeTruthy()
 })
 
+//This is a Unit Test
 test("renders main div on App", () => {
   const wrapper = setup()
   const appComponent = findByTestAttr(wrapper, "app-component")
   expect(appComponent.length).toBe(1)
 })
 
+//This is a Unit Test
 test("renders button", () => {
   const wrapper = setup()
   const button = findByTestAttr(wrapper, "increment-button")
@@ -45,20 +48,18 @@ test("renders counter display", () => {
   expect(counterDisplay.length).toBe(1)
 })
 
+//This is a Behavior Test
 test("counter starts at 0", () => {
   const wrapper = setup()
   const count = findByTestAttr(wrapper, "count").text()
   expect(count).toBe("0")
 })
 
-//This is a behavior test
+//This is a Behavior Test
 test("button click updates counter", () => {
   const wrapper = setup()
   const button = findByTestAttr(wrapper, "increment-button")
-
   button.simulate("click")
   const count = findByTestAttr(wrapper, "count").text()
-
   expect(count).toBe("1")
-
 })
